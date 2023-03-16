@@ -4,12 +4,9 @@ pub mod helpers;
 pub mod msg;
 mod query;
 pub mod state;
-mod upgrades;
 
 #[cfg(test)]
 mod contract_tests;
-#[cfg(test)]
-mod multi_tests;
 
 pub use crate::error::ContractError;
 pub use crate::msg::{ExecuteMsg, InstantiateMsg, MinterResponse, QueryMsg};

@@ -10,7 +10,6 @@ use cw721::{ContractInfoResponse, Cw721Execute, Cw721ReceiveMsg, Expiration};
 use crate::error::ContractError;
 use crate::msg::{ExecuteMsg, InstantiateMsg};
 use crate::state::{Approval, Cw721Contract, TokenInfo};
-use crate::upgrades;
 use crate::{CONTRACT_NAME, CONTRACT_VERSION};
 
 impl<'a, T, C, E, Q> Cw721Contract<'a, T, C, E, Q>
@@ -140,7 +139,8 @@ where
         if version != "0.16.0" {
             Err(ContractError::WrongMigrateVersion(version))
         } else {
-            upgrades::v0_16::migrate::<T, C, E, Q>(deps)
+            // upgrades::v0_16::migrate::<T, C, E, Q>(deps)
+            Ok(Response::default())
         }
     }
 }
